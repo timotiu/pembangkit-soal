@@ -16,6 +16,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 }));
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://pembangkit-soal.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 const port = 3001;
 let nomorArr = [];
 
