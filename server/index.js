@@ -11,16 +11,23 @@ import cors from 'cors';
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join('index.js', 'react_js/build')));
-app.use(cors({
-  origin:["https://pembangkit-soal-apps.vercel.app"],
-  methods:["POST","GET"],
-  credentials:true,
-}));
+app.use(express.static(path.join('script.js', 'react_js/build')));
 
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://database-pembangkit-soal.vercel.app/", true);
+xhr.withCredentials = true; // Set to true if credentials needed, make sure server accepts it.
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText)}}
 const port = 3001;
 let nomorArr = [];
 
+app.use(cors({
+  origin:["https://pembangkit-soal-apps.vercel.app/"],
+  methods:["POST","GET"],
+  credentials:true,
+  allowedHeaders: ['Content-Type'],
+}));
 connect();
 
 
