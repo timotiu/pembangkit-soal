@@ -12,9 +12,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join('index.js', 'react_js/build')));
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://pembangkit-soal.vercel.app");
-    res.header("Access-Control);
 app.use(cors({
   origin:["https://pembangkit-soal-apps.vercel.app/"],
   methods:["POST","GET"],
