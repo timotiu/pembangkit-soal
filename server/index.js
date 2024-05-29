@@ -28,7 +28,7 @@ app.get("/",(req,res)=>{
   res.json("Server sedang berjalan bro...");
 })
 app.post("/",(req,res)=>{
-  console.log("selamat!");
+  res.json("selamat!");
 })
 // app.post("/", (req, res) => {
 //   hasilSoal(req.body.inputSoal,req.body.jumlahSoal, async (result) => {
