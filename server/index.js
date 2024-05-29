@@ -9,6 +9,11 @@ import path from 'path';
 import cors from 'cors';
 
 const app = express();
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://pembangkit-soal.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.json());
 // app.use(express.static(path.join('index.js', 'react_js/build')));
