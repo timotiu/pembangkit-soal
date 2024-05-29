@@ -12,16 +12,16 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join('index.js', 'react_js/build')));
-const corsOptions = {
-  origin: 'https://pembangkit-soal.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204
-};
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://pembangkit-soal.vercel.app");
+    res.header("Access-Control);
+app.use(cors({
+  origin:["https://pembangkit-soal-apps.vercel.app/"],
+  methods:["POST","GET"],
+  credentials:true,
+  allowedHeaders: ['Content-Type'],
+}));
 
-app.use(cors(corsOptions));
-
-app.options('*', cors(corsOptions));
 const port = 3001;
 let nomorArr = [];
 
