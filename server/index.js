@@ -16,6 +16,9 @@ app.use(express.static(path.join('script.js', 'react_js/build')));
 const port = 3001;
 let nomorArr = [];
 app.use(cors({
+  origin:["https://pembangkit-soal.vercel.app/"],
+  methods:["POST,GET"],
+  credentials:true,
   allowedHeaders: ['Content-Type'],
 }));
 connect();
